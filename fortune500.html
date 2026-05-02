@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S.E.W.W.W. | Executive Brief for Christine E.B. Howard | v3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0B1F33;
+      --navy-2:#122B45;
+      --ink:#111827;
+      --body:#374151;
+      --muted:#6B7280;
+      --line:#D9DEE7;
+      --line-soft:#ECEFF4;
+      --bg:#F6F8FB;
+      --white:#FFFFFF;
+      --accent:#B88A2E;
+      --accent-soft:#F3E8CE;
+      --success:#1F6F5B;
+      --danger:#8A3A32;
+      --sidebar:248px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.45;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+
+    .sidebar{position:fixed;left:0;top:0;width:var(--sidebar);height:100vh;background:var(--navy);color:#DDE6F0;z-index:10;border-right:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column}
+    .brand{padding:28px 24px 22px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .brand-title{font-size:18px;font-weight:800;letter-spacing:.04em;color:white}
+    .brand-sub{margin-top:8px;font-size:11px;line-height:1.45;color:#AAB7C7;text-transform:uppercase;letter-spacing:.12em}
+    .brand-meta{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#C8D3E0;line-height:1.6}
+    .nav{padding:18px 14px;overflow-y:auto;flex:1}
+    .nav-label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#7F90A5;margin:6px 10px 10px}
+    .nav a{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:center;text-decoration:none;padding:10px;border-radius:4px;color:#C8D3E0;font-size:12px;font-weight:500;border-left:2px solid transparent}
+    .nav a:hover,.nav a.active{background:rgba(255,255,255,.07);color:white;border-left-color:var(--accent)}
+    .num{font-size:11px;color:#96A6B8;font-weight:700}
+    .sidebar-footer{padding:18px 20px 24px;border-top:1px solid rgba(255,255,255,.1)}
+    .sidebar-footer a{display:block;text-align:center;text-decoration:none;background:white;color:var(--navy);padding:12px 14px;border-radius:4px;font-size:12px;font-weight:700}
+
+    .main{margin-left:var(--sidebar);background:var(--bg)}
+    .slide{min-height:100vh;padding:64px 76px 58px;background:var(--white);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;position:relative}
+    .slide:nth-child(even){background:#FAFBFD}
+    .slide-no{position:absolute;right:42px;top:30px;color:#9AA3B2;font-size:11px;font-weight:700;letter-spacing:.12em}
+    .section-label{color:var(--accent);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;margin-bottom:18px}
+    h1{font-size:56px;line-height:1.02;letter-spacing:-.045em;max-width:1000px;color:var(--navy);font-weight:800}
+    h2{font-size:42px;line-height:1.08;letter-spacing:-.035em;max-width:980px;color:var(--navy);font-weight:800}
+    h3{font-size:18px;line-height:1.25;color:var(--navy);font-weight:800;margin-bottom:10px}
+    .lead{font-size:19px;color:var(--body);max-width:920px;margin-top:20px;line-height:1.6}
+    .takeaway{margin-top:26px;border-left:4px solid var(--accent);padding:14px 18px;background:#F8F4EB;color:#283443;font-size:15px;line-height:1.55;max-width:940px}
+    .meta-line{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:13px;font-weight:600}
+    .pill{border:1px solid var(--line);background:white;padding:8px 10px;border-radius:3px;color:#4B5563}
+
+    .executive-panel{margin-top:42px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:white}
+    .panel-cell{padding:22px 24px;border-right:1px solid var(--line)}
+    .panel-cell:last-child{border-right:0}
+    .panel-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:800;margin-bottom:8px}
+    .panel-value{font-size:20px;line-height:1.25;color:var(--navy);font-weight:800}
+    .panel-note{margin-top:8px;font-size:12px;line-height:1.5;color:var(--muted)}
+
+    .grid-2{display:grid;grid-template-columns:1.08fr .92fr;gap:42px;align-items:start;margin-top:38px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:34px;border:1px solid var(--line);background:white}
+    .card{background:white;border:1px solid var(--line);padding:24px;border-radius:0;box-shadow:none}
+    .card p{font-size:14px;color:var(--body);line-height:1.6}
+    .card .label{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;margin-bottom:10px}
+    .stat{padding:24px;border-right:1px solid var(--line);background:white}
+    .stat:last-child{border-right:0}
+    .stat-value{font-size:34px;line-height:1;color:var(--navy);font-weight:800;letter-spacing:-.03em}
+    .stat-text{font-size:13px;color:var(--body);line-height:1.55;margin-top:10px}
+    .source{font-size:11px;color:#8B95A5;margin-top:10px;line-height:1.4}
+
+    .table{width:100%;border-collapse:collapse;border:1px solid var(--line);background:white;margin-top:32px;font-size:13px}
+    .table th{background:#F1F4F8;color:var(--navy);text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+    .table td{padding:15px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--body);line-height:1.5}
+    .table tr:last-child td{border-bottom:0}
+    .table strong{color:var(--navy)}
+
+    .diagram{border:1px solid var(--line);background:white;padding:30px;margin-top:34px}
+    .process{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);background:white;margin-top:34px}
+    .process-step{padding:22px 18px;border-right:1px solid var(--line);min-height:150px}
+    .process-step:last-child{border-right:0}
+    .process-step .step-num{font-size:11px;color:var(--accent);font-weight:800;letter-spacing:.12em;margin-bottom:14px}
+    .process-step strong{display:block;color:var(--navy);font-size:15px;margin-bottom:8px;line-height:1.3}
+    .process-step span{font-size:12px;color:var(--body);line-height:1.55}
+
+    .tier-table td:first-child{font-weight:800;color:var(--navy);width:18%}
+    .ask-box{background:var(--navy);color:white;padding:34px;border:1px solid #0B1F33;margin-top:34px}
+    .ask-box h3{color:white;font-size:24px;margin-bottom:18px}
+    .ask-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14)}
+    .ask-item{background:#122B45;padding:22px}
+    .ask-item strong{display:block;color:white;font-size:15px;margin-bottom:8px}
+    .ask-item span{font-size:13px;color:#C8D3E0;line-height:1.55}
+    .contact-strip{margin-top:32px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap;color:#C8D3E0;font-size:13px;line-height:1.6}
+    .contact-strip a{color:white;text-decoration:none;font-weight:700}
+
+    .footer{margin-left:var(--sidebar);padding:22px 76px;background:#F1F4F8;color:var(--muted);font-size:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .mobile-toggle{display:none}
+
+    @media(max-width:1100px){
+      .sidebar{transform:translateX(-100%);transition:.2s}.sidebar.open{transform:translateX(0)}.main,.footer{margin-left:0}.mobile-toggle{display:block;position:fixed;left:14px;top:14px;z-index:20;background:white;border:1px solid var(--line);padding:9px 10px;border-radius:4px}.mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0}.slide{padding:70px 24px 44px}.grid-2,.grid-3,.executive-panel,.process,.ask-list{grid-template-columns:1fr}.grid-4{grid-template-columns:1fr}.panel-cell,.stat,.process-step{border-right:0;border-bottom:1px solid var(--line)}h1{font-size:38px}h2{font-size:32px}.lead{font-size:16px}.footer{padding:20px 24px}}
+  </style>
+</head>
+<body>
+<button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')"><span></span><span></span><span></span></button>
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-title">S.E.W.W.W.</div>
+    <div class="brand-sub">Solar · Energy · Water · Waste · Wind</div>
+    <div class="brand-meta">Executive brief<br>Prepared for Christine E.B. Howard<br>Version 3.0</div>
+  </div>
+  <nav class="nav">
+    <div class="nav-label">Sections</div>
+    <a class="active" href="#title"><span class="num">01</span>Executive Summary</a>
+    <a href="#problem"><span class="num">02</span>Market Need</a>
+    <a href="#solution"><span class="num">03</span>System Model</a>
+    <a href="#retrofit"><span class="num">04</span>Retrofit Pathway</a>
+    <a href="#tiers"><span class="num">05</span>Deployment Tiers</a>
+    <a href="#region"><span class="num">06</span>Regional Expansion</a>
+    <a href="#funding"><span class="num">07</span>Funding Pathway</a>
+    <a href="#team"><span class="num">08</span>Operating Network</a>
+    <a href="#traction"><span class="num">09</span>Current Status</a>
+    <a href="#ask"><span class="num">10</span>Partnership Ask</a>
+  </nav>
+  <div class="sidebar-footer"><a href="mailto:rafael@brightpathascendgroup.com?cc=sarah@ebhoward.com">Schedule Discussion</a></div>
+</aside>
+<main class="main">
+  <section class="slide" id="title">
+    <span class="slide-no">01 / 10</span>
+    <div class="section-label">Executive Summary</div>
+    <h1>Integrated resilience infrastructure for Caribbean homes and communities.</h1>
+    <p class="lead">S.E.W.W.W. combines distributed power, water generation, waste conversion, and storage into one retrofit-ready system designed for hurricane-exposed island markets.</p>
+    <div class="takeaway"><strong>Purpose of this brief:</strong> align on the pilot pathway, funding fit, and the specific role E.B. Howard can play in positioning S.E.W.W.W. for grant-backed deployment.</div>
+    <div class="executive-panel">
+      <div class="panel-cell"><div class="panel-kicker">Pilot asset</div><div class="panel-value">Stamped DR site drawings</div><div class="panel-note">Cabaña Palenque, Palenque, Dominican Republic. Existing plans provide a practical retrofit reference.</div></div>
+      <div class="panel-cell"><div class="panel-kicker">Initial market</div><div class="panel-value">Puerto Rico</div><div class="panel-note">Federal resilience funding and grid reliability challenges create a strong launch environment.</div></div>
+      <div class="panel-cell"><div class="panel-kicker">Deployment model</div><div class="panel-value">Retrofit first</div><div class="panel-note">Designed to connect into existing water, gas, and waste infrastructure where feasible.</div></div>
+      <div class="panel-cell"><div class="panel-kicker">Funding partner role</div><div class="panel-value">Grant strategy</div><div class="panel-note">Positioning, narrative, evidence, compliance framing, and capital pathway support.</div></div>
+    </div>
+    <div class="meta-line"><span class="pill">Prepared for Christine E.B. Howard</span><span class="pill">Strategic Funding Partnership</span><span class="pill">v3.0 Fortune 500 / Board Style</span></div>
+  </section>
+
+  <section class="slide" id="problem">
+    <span class="slide-no">02 / 10</span>
+    <div class="section-label">Market Need</div>
+    <h2>Caribbean households face recurring infrastructure failure across power, water, fuel, and waste.</h2>
+    <p class="lead">The issue is not only the electric grid. When grid service fails, water pumps, refrigeration, sewage systems, and household fuel access are also affected. Families then pay repeatedly for imported energy, bottled water, propane, diesel backup, and recovery costs.</p>
+    <div class="grid-4">
+      <div class="stat"><div class="stat-value">$90B+</div><div class="stat-text">Estimated recovery cost associated with Hurricane Maria in Puerto Rico.</div><div class="source">Congressional Research Service, 2018</div></div>
+      <div class="stat"><div class="stat-value">328 days</div><div class="stat-text">Reported duration for full Puerto Rico grid restoration after Maria.</div><div class="source">U.S. Department of Energy</div></div>
+      <div class="stat"><div class="stat-value">~90%</div><div class="stat-text">Estimated share of Caribbean energy supplied by imported fossil fuels.</div><div class="source">Inter-American Development Bank</div></div>
+      <div class="stat"><div class="stat-value">$1B+</div><div class="stat-text">Puerto Rico Energy Resilience Fund funding pool announced for resilience deployment.</div><div class="source">U.S. Department of Energy</div></div>
+    </div>
+    <div class="takeaway"><strong>Strategic implication:</strong> solutions that address only solar and battery storage leave major household dependencies unresolved.</div>
+  </section>
+
+  <section class="slide" id="solution">
+    <span class="slide-no">03 / 10</span>
+    <div class="section-label">System Model</div>
+    <h2>A single residential infrastructure platform with multiple essential outputs.</h2>
+    <p class="lead">The S.E.W.W.W. model integrates solar, wind, atmospheric water generation, anaerobic digestion, battery storage, and hydrogen backup into a coordinated system. Each component is commercially understandable on its own. The value is in the integration.</p>
+    <div class="process">
+      <div class="process-step"><div class="step-num">01</div><strong>Generate</strong><span>Solar PV and vertical-axis wind turbines provide distributed electricity.</span></div>
+      <div class="process-step"><div class="step-num">02</div><strong>Store</strong><span>Batteries and hydrogen backup support extended outage resilience.</span></div>
+      <div class="process-step"><div class="step-num">03</div><strong>Produce Water</strong><span>AWG creates drinking water. Rainwater and greywater can support non-potable system inputs.</span></div>
+      <div class="process-step"><div class="step-num">04</div><strong>Convert Waste</strong><span>Organic and sanitary waste streams feed an anaerobic digester where feasible.</span></div>
+      <div class="process-step"><div class="step-num">05</div><strong>Reuse Outputs</strong><span>Biogas supports cooking or backup generation. Digestate may support fertilizer use.</span></div>
+    </div>
+    <table class="table">
+      <thead><tr><th>Output</th><th>Household value</th><th>Resilience value</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Electricity</strong></td><td>Reduces reliance on imported power and diesel backup.</td><td>Maintains critical household functions during grid outages.</td></tr>
+        <tr><td><strong>Drinking water</strong></td><td>Reduces bottled water dependence.</td><td>Supports continuity when pumps, municipal systems, or supply chains fail.</td></tr>
+        <tr><td><strong>Cooking gas</strong></td><td>Reduces propane dependency where gas conversion is viable.</td><td>Keeps basic cooking capacity available during supply disruption.</td></tr>
+        <tr><td><strong>Fertilizer</strong></td><td>Creates a productive output from waste streams.</td><td>Supports local food and landscape systems.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="slide" id="retrofit">
+    <span class="slide-no">04 / 10</span>
+    <div class="section-label">Retrofit Pathway</div>
+    <h2>The practical advantage is retrofit compatibility, not new-construction dependency.</h2>
+    <p class="lead">The Dominican Republic pilot reference includes stamped residential drawings showing standard water, gas, and septic infrastructure. The system is intended to use existing connection points where site conditions and code allow.</p>
+    <div class="grid-3">
+      <div class="card"><div class="label">Water connection</div><h3>AWG to cold water system</h3><p>Atmospheric water generator output can feed storage and pressure systems before distribution through the existing residential cold-water network.</p></div>
+      <div class="card"><div class="label">Gas connection</div><h3>Biogas to cooking use</h3><p>Biogas can be routed toward cooking or backup generation when the system is engineered, permitted, and safely conditioned for the appliance pathway.</p></div>
+      <div class="card"><div class="label">Waste connection</div><h3>Digester before drain field</h3><p>Sanitary and organic waste can be intercepted before final disposal, converting a cost and liability stream into a potential energy and fertilizer stream.</p></div>
+    </div>
+    <table class="table">
+      <thead><tr><th>Reference asset</th><th>Details</th><th>Why it matters</th></tr></thead>
+      <tbody><tr><td><strong>Cabaña Palenque</strong></td><td>Palenque, Dominican Republic. Stamped February 2016 drawings.</td><td>Provides a concrete site reference for engineering review, retrofit mapping, and pilot documentation.</td></tr><tr><td><strong>Professionals listed</strong></td><td>Arq. Alberto Vásquez, Ing. Miguel Abreu, Ing. Julio Cesar Checo.</td><td>Supports credibility of the underlying site documentation.</td></tr></tbody>
+    </table>
+  </section>
+
+  <section class="slide" id="tiers">
+    <span class="slide-no">05 / 10</span>
+    <div class="section-label">Deployment Tiers</div>
+    <h2>Three deployment sizes create a path from residential proof to institutional scale.</h2>
+    <p class="lead">The same operating concept can be packaged for a single home, a community cluster, or a larger institutional site. The pilot tier should be selected based on funding fit, community visibility, permitting requirements, and measurable outcomes.</p>
+    <table class="table tier-table">
+      <thead><tr><th>Tier</th><th>Estimated system cost</th><th>Target site</th><th>Core configuration</th><th>Best use case</th></tr></thead>
+      <tbody>
+        <tr><td>PowerHouse</td><td>$75K</td><td>Single residence</td><td>Solar, VAWT, battery, AWG, small digester, electrolyzer/fuel cell.</td><td>Residential proof point and owner-occupied resilience.</td></tr>
+        <tr><td>Community</td><td>$740K</td><td>25 to 50 homes</td><td>100 kW solar, VAWT array, 200 kWh storage, 500 L/day AWG, medium digester.</td><td>Recommended pilot tier for grant-backed community resilience.</td></tr>
+        <tr><td>PowerTower</td><td>$2.625M</td><td>Hotel, hospital, or municipal facility</td><td>500 kW solar, 1 MWh storage, 2,000 L/day AWG, industrial digester.</td><td>Institutional resilience and high-visibility demonstration.</td></tr>
+      </tbody>
+    </table>
+    <div class="takeaway"><strong>Positioning:</strong> unlike standalone solar and battery deployments, S.E.W.W.W. is positioned as a multi-utility resilience platform.</div>
+  </section>
+
+  <section class="slide" id="region">
+    <span class="slide-no">06 / 10</span>
+    <div class="section-label">Regional Expansion</div>
+    <h2>Puerto Rico can serve as the proof market, with the Dominican Republic as a demonstration bridge.</h2>
+    <p class="lead">Puerto Rico offers a strong funding and resilience context. The Dominican Republic provides a site-specific pilot reference. Together, they create a practical path for Caribbean validation and regional delegation visits.</p>
+    <div class="grid-3">
+      <div class="card"><div class="label">Phase 1</div><h3>Puerto Rico launch</h3><p>Use federal and resilience-oriented funding pathways to support an initial deployment in a high-need, high-visibility market.</p></div>
+      <div class="card"><div class="label">Phase 2</div><h3>Dominican Republic proof visit</h3><p>Use the existing DR documentation and site narrative to support credibility, regional relevance, and investor/funder walkthroughs.</p></div>
+      <div class="card"><div class="label">Phase 3</div><h3>Caribbean replication</h3><p>Expand to island markets with similar import dependency, grid exposure, water stress, and hurricane recovery challenges.</p></div>
+    </div>
+    <table class="table">
+      <thead><tr><th>Market</th><th>Role in strategy</th><th>Reason for fit</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Puerto Rico</strong></td><td>Launchpad</td><td>Federal resilience focus, recent grid trauma, and high policy relevance.</td></tr>
+        <tr><td><strong>Dominican Republic</strong></td><td>Pilot reference and regional credibility</td><td>Existing site documentation and proximity to broader Caribbean needs.</td></tr>
+        <tr><td><strong>Cuba and wider Caribbean</strong></td><td>Longer-term market</td><td>Shared infrastructure vulnerabilities and import dependency.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="slide" id="funding">
+    <span class="slide-no">07 / 10</span>
+    <div class="section-label">Funding Pathway</div>
+    <h2>The opportunity should be framed as resilience infrastructure, not only clean energy.</h2>
+    <p class="lead">A strong funding strategy should connect S.E.W.W.W. to energy resilience, emergency preparedness, water access, waste management, agricultural productivity, and economic development. That broader frame is what makes the system more fundable.</p>
+    <table class="table">
+      <thead><tr><th>Funding lane</th><th>Strategic fit</th><th>Evidence needed</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Energy resilience</strong></td><td>Distributed generation, storage, outage protection, and critical household continuity.</td><td>Load profiles, outage assumptions, engineering design, cost model.</td></tr>
+        <tr><td><strong>Water security</strong></td><td>AWG and water continuity during grid or supply disruption.</td><td>Daily water yield, quality controls, maintenance plan, community need.</td></tr>
+        <tr><td><strong>Waste-to-energy</strong></td><td>Conversion of organic and sanitary waste into useful outputs.</td><td>Feedstock assumptions, permitting plan, safety controls, output validation.</td></tr>
+        <tr><td><strong>Community development</strong></td><td>Reduced household costs, local resilience, job creation, and training.</td><td>Community partner, implementation plan, training model, measurable outcomes.</td></tr>
+      </tbody>
+    </table>
+    <div class="takeaway"><strong>Christine/E.B. Howard fit:</strong> funding strategy, grant positioning, documentation standards, and proposal architecture are central to making this pilot credible to public and philanthropic funders.</div>
+  </section>
+
+  <section class="slide" id="team">
+    <span class="slide-no">08 / 10</span>
+    <div class="section-label">Operating Network</div>
+    <h2>The next phase requires a fundable operating structure around the technical concept.</h2>
+    <p class="lead">The current opportunity is not only to refine the technology story. It is to organize the technical, funding, compliance, community, and implementation partners into a credible pilot vehicle.</p>
+    <div class="grid-3">
+      <div class="card"><div class="label">Sponsor / originator</div><h3>Rafael Rodriguez</h3><p>Leads concept development, site relationships, partner coordination, and go-to-market strategy for the S.E.W.W.W. platform.</p></div>
+      <div class="card"><div class="label">Funding strategy</div><h3>Christine E.B. Howard</h3><p>Potential strategic funding partner for grant pathway development, proposal positioning, and capital readiness.</p></div>
+      <div class="card"><div class="label">Engineering and compliance</div><h3>To be formalized</h3><p>Requires licensed engineering review, permitting counsel, installer partners, safety validation, and operating compliance plan.</p></div>
+    </div>
+    <table class="table">
+      <thead><tr><th>Workstream</th><th>Owner required</th><th>Immediate need</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Engineering validation</strong></td><td>Licensed engineer / EPC partner</td><td>Confirm system sizing, interconnection, safety, and local code feasibility.</td></tr>
+        <tr><td><strong>Grant development</strong></td><td>E.B. Howard / funding partner</td><td>Identify best-fit programs and build the proposal evidence package.</td></tr>
+        <tr><td><strong>Community partner</strong></td><td>Municipal, nonprofit, or housing partner</td><td>Secure a credible deployment host with community need and public value.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="slide" id="traction">
+    <span class="slide-no">09 / 10</span>
+    <div class="section-label">Current Status</div>
+    <h2>The concept has a pilot narrative. The next step is converting it into a fundable package.</h2>
+    <p class="lead">S.E.W.W.W. has enough structure to move from concept discussion to diligence preparation. The focus now should be evidence, governance, engineering review, and funding alignment.</p>
+    <table class="table">
+      <thead><tr><th>Status</th><th>Item</th><th>Next action</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Complete</strong></td><td>Concept architecture across solar, energy storage, water, waste, and wind.</td><td>Translate into a technical scope with assumptions and boundaries.</td></tr>
+        <tr><td><strong>Complete</strong></td><td>DR pilot reference with stamped site drawings.</td><td>Package drawings and photos as appendix support.</td></tr>
+        <tr><td><strong>In progress</strong></td><td>Puerto Rico launch narrative.</td><td>Match to specific funding programs and eligible applicant structures.</td></tr>
+        <tr><td><strong>Required</strong></td><td>Engineering, permitting, safety, and cost validation.</td><td>Engage licensed review and prepare pilot budget.</td></tr>
+        <tr><td><strong>Required</strong></td><td>Community deployment partner.</td><td>Identify municipality, nonprofit, housing development, or institutional host.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="slide" id="ask">
+    <span class="slide-no">10 / 10</span>
+    <div class="section-label">Partnership Ask</div>
+    <h2>We are seeking E.B. Howard’s support to turn S.E.W.W.W. into a fundable pilot.</h2>
+    <p class="lead">The immediate goal is not to fund every deployment. The immediate goal is to build a credible pilot package that can compete for resilience, energy, water, and community development funding.</p>
+    <div class="ask-box">
+      <h3>Proposed scope of collaboration</h3>
+      <div class="ask-list">
+        <div class="ask-item"><strong>Funding roadmap</strong><span>Identify best-fit grant programs, applicant structures, eligibility requirements, and likely sequencing.</span></div>
+        <div class="ask-item"><strong>Proposal architecture</strong><span>Convert the concept into a funder-ready narrative with outcomes, budget logic, and supporting documentation.</span></div>
+        <div class="ask-item"><strong>Pilot readiness</strong><span>Define the evidence package needed before submission, including engineering review, partner letters, and implementation plan.</span></div>
+      </div>
+      <div class="contact-strip">
+        <div><strong>Decision requested:</strong> confirm whether E.B. Howard sees a viable funding pathway and would support the next-stage package.</div>
+        <div><a href="mailto:rafael@brightpathascendgroup.com?cc=sarah@ebhoward.com">rafael@brightpathascendgroup.com</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><span>S.E.W.W.W. | Executive Brief | v3.0</span><span>Prepared for Christine E.B. Howard</span></footer>
+<script>
+  const links=[...document.querySelectorAll('.nav a')];
+  const sections=[...document.querySelectorAll('.slide')];
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));
+      }
+    });
+  },{threshold:.55});
+  sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
